@@ -1,0 +1,9 @@
+package startup;
+
+public class StartupClass {
+
+	public static void main(String[] args) {
+		System.out.println("Hello world");
+	}
+
+}
