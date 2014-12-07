@@ -1,11 +1,11 @@
 package basicApplication.mainExe;
 
-import basicApplication.gui.GraphicUI;
+import basicApplication.gui.GraphicUIwindow;
 
 public class MainClass {
 
 	public static void main(String[] args)
 	{
-		GraphicUI graphicUI = new GraphicUI();
+		GraphicUIwindow graphicUIwindow = new GraphicUIwindow();
 	}
 }
