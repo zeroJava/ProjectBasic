@@ -1,9 +1,12 @@
 package testCasesBasic;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
+import basicApplication.dataClass.ActorHibernateBasic;
 import basicApplication.databaseEngine.HibernateUtilitiess;
 
 public class UnitTestCase {
@@ -15,7 +18,18 @@ public class UnitTestCase {
 	{	
 		Session session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
-		System.out.println(session.createQuery("SELECT ID FROM ActorHibernateBasic WHERE ID=1"));
+		List<Integer> list = session.createQuery("SELECT ID FROM ActorHibernateBasic").list();
+		for(Integer aBasic : list)
+		{
+			System.out.println(aBasic.toString());
+		}	
+		transaction.commit();
+		session.close();
+		
+		session = HibernateUtilitiess.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		ActorHibernateBasic lancel = new ActorHibernateBasic("JONNY", "BLAZZE");
+		session.save(lancel);
 		transaction.commit();
 		session.close();
 	}

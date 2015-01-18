@@ -14,6 +14,39 @@ public class ActorHibernateBasic {
 	private String firstName;
 	private Date date;
 	
+	// this is a persistence class, which means that this class a class representation of table in the 
+	// database.
+	// So when we make data, we could create an instance of this class, and will automatically be stored to 
+	// the table (database).
+	// This why this called a persistence class, because data will still exist, even after that object is
+	// executing.
+	
+	public ActorHibernateBasic()
+	{
+		
+	}
+	
+	public ActorHibernateBasic(String firstName, String lastName)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	public ActorHibernateBasic(int ID, String firstName, String lastName)
+	{
+		this.ID = ID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	public ActorHibernateBasic(int ID, String firstName, String lastName, Date date)
+	{
+		this.ID = ID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.date = date;
+	}
+	
 	public int getID() 
 	{
 		return ID;

@@ -9,6 +9,8 @@ public class HibernateUtilitiess {
 	
 	private static SessionFactory sessionFactory;
 	
+	// HibernateUtilities is the the place where our session-factory is made 
+	
 	static 
 	{
 		try 

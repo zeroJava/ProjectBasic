@@ -1,0 +1,23 @@
+HibernateUtilities is where our hibernate sessionfactory is constructed. 
+The sessionfactory is the first step of java hibernate, because it contains configuration that join
+the java application (via hibernate) to the database.
+
+----------------------------------------- What is a sessionfctoty? ---------------------------------------------
+
+ Sessionfactory is a feature that allows us to create session. It's a feature that needs to be executed once 
+ the applications start-up, and from then we starts to make sessions, which are parts of the code that go back and forth from the java
+ appliation to the database. It's thread safe and immutable(they can't change)
+
+ A good way to look at sessionfactory, is to consider it a car manufacturing plant (factory), which builds 
+ cars(sessions); once a car factory is built, it start producing car, but without the factory, we would not 
+ be able to make cars(session). 
+ 
+ ------- How are sessionfactories made? --------
+   They are made by getting data from the hibernate.cfg.xml which you have configure. The hibernate.cfg.xml
+   contains data regarding the database location, database type, username, and etc
+   
+   
+   ---------------------- | What is a session? |--------------------------------
+   
+   Is a thread that helps manage stuff by forming a connection that helps storing and retrieving data. 
+   The session is the infastructure(connection) that lets you do hibernetty stuff.  
