@@ -2,6 +2,8 @@ package basicApplication.gui;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +25,7 @@ public class GraphicUIwindow extends JFrame{
 		setLayout();
 		creatTextArea();
 		postitioningTheCoponentsInJFrame();
+		initialiseButtonsWithActions();
 	}
 
 	private void setLayout()
@@ -83,5 +86,20 @@ public class GraphicUIwindow extends JFrame{
 		
 		container.add(buttons.get("Exit"));
 		buttons.get("Exit").setBounds(30, 150, 200, 50);
+	}
+	
+	private void initialiseButtonsWithActions()
+	{
+		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
+	}
+	
+	private class SerachButtonActionListenerClass implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
+			optionDialogBox.setLayoutOfSearchOptionDialogBox();
+		}
 	}
 }

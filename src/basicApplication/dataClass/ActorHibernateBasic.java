@@ -84,4 +84,32 @@ public class ActorHibernateBasic {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	@Override
+	public String toString() 
+	{
+		return ("ActorHibernateBasic [ID=" + ID + ", lastName=" + lastName
+				+ ", firstName=" + firstName + ", date=" + date + "]");
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ID;
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result
+				+ ((lastName == null) ? 0 : lastName.hashCode());
+		return result;
+	}
+
+	public boolean equals(ActorHibernateBasic basic) 
+	{
+		return ((this.ID == basic.ID) && (this.firstName.equals(basic.firstName)) && 
+				(this.lastName.equals(basic.lastName)) && (this.date.equals(basic.date)) );
+	}
+	
+	
 }

@@ -2,6 +2,7 @@ package testCasesBasic;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
@@ -30,6 +31,13 @@ public class UnitTestCase {
 		transaction = session.beginTransaction();
 		ActorHibernateBasic lancel = new ActorHibernateBasic("JONNY", "BLAZZE");
 		session.save(lancel);
+		transaction.commit();
+		session.close();
+		
+		session = HibernateUtilitiess.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		Query query = session.getNamedQuery("findStockByStockCode").setString("lastName", "MAHOGANY");
+		System.out.println(query.uniqueResult());
 		transaction.commit();
 		session.close();
 	}
