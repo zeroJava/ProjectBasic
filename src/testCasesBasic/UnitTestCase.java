@@ -36,7 +36,7 @@ public class UnitTestCase {
 		
 		session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
-		Query query = session.getNamedQuery("findStockByStockCode").setString("lastName", "MAHOGANY");
+		Query query = session.getNamedQuery("findIDByLastName").setString("lastName", "MAHOGANY");
 		System.out.println(query.uniqueResult());
 		transaction.commit();
 		session.close();
