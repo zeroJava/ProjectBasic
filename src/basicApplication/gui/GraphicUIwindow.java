@@ -10,7 +10,9 @@ import java.util.Map;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 
 public class GraphicUIwindow extends JFrame{
@@ -18,6 +20,11 @@ public class GraphicUIwindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Map<String, JButton> buttons = new HashMap<String, JButton>();
 	private Map<String, JTextArea> textAreas = new HashMap<String, JTextArea>();
+	
+	private DefaultTableModel model = new DefaultTableModel();
+	private JTable table = new JTable(model);
+	private Map<String, String> columns = new HashMap<String, String>();
+	
 	private Container container;
 	
 	public GraphicUIwindow()
@@ -28,7 +35,7 @@ public class GraphicUIwindow extends JFrame{
 		initialiseButtonsWithActions();
 	}
 
-	private void setLayout()
+	public void setLayout()
 	{
 		setTitle("zeroJava - Window");
 		setSize(1000, 600);
@@ -61,11 +68,29 @@ public class GraphicUIwindow extends JFrame{
 		textAreas.get("LoggingTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 	}
 	
-	private void postitioningTheCoponentsInJFrame()
+	public void createTableContent()
+	{
+		createColumsData();
+		model.addColumn(columns.get("ID"));
+	}
+	
+	public void createColumsData()
+	{
+		addColumnToTable("ID", "ID");
+		addColumnToTable("lastname", "LastName");
+	}
+	
+	private void addColumnToTable(String key, String value)
+	{
+		columns.put(key, value);
+	}
+	
+	public void postitioningTheCoponentsInJFrame()
 	{
 		//---------------------- Invoke the creation method of components
 		creatTextArea();
 		createButtons();
+		createTableContent();
 		
 		container = this.getContentPane();
 		container.setLayout(null);
@@ -74,6 +99,9 @@ public class GraphicUIwindow extends JFrame{
 		//---------------------- Adding and positioning the components 
 		container.add(textAreas.get("mainTextBoxWindow"));
 		textAreas.get("mainTextBoxWindow").setBounds(250, 30, 700, 300);
+		
+//		container.add(table);
+//		table.setBounds(250, 30, 700, 300);
 		
 		container.add(textAreas.get("LoggingTextBoxWindow"));
 		textAreas.get("LoggingTextBoxWindow").setBounds(250, 350, 700, 170);
@@ -88,7 +116,7 @@ public class GraphicUIwindow extends JFrame{
 		buttons.get("Exit").setBounds(30, 150, 200, 50);
 	}
 	
-	private void initialiseButtonsWithActions()
+	public void initialiseButtonsWithActions()
 	{
 		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
 	}

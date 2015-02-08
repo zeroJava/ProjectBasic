@@ -7,7 +7,7 @@
 <hibernate-mapping package="basicApplication.dataClass">
 
 	<class name="ActorHibernateBasic" table="actor">
-		<id name="ID" column="actor_id">
+		<id name="ID" type= "integer" column="actor_id">
 			<generator class="increment" />
 		</id>
 		<property name="date" type="timestamp" column="last_update" />
@@ -24,5 +24,8 @@
 	</query>
 	<query name="findFirstNameByLastName">
 		<![CDATA[select firstName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
+	</query>
+	<query name="getAllUsingLastName">
+		<![CDATA[select ID, firstName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
 	</query>
 </hibernate-mapping>

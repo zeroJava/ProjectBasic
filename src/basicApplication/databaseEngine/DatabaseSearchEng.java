@@ -22,9 +22,11 @@ public class DatabaseSearchEng {
 		return (ActorHibernateBasic) query;
 	}
 	
-	public ActorHibernateBasic retrieveAllDataUsingLastName(Session session, String lastName)
+	public List<ActorHibernateBasic> retrieveAllDataUsingLastName(Session session, String lastName)
 	{
-		Query query = session.createQuery("select ID, firstName from ActorHibernateBasic ac where ac.lastName = :lastName").setString("lastName", lastName);
-		return (ActorHibernateBasic) query;
+		//Query query = session.createSQLQuery("select ID, lastName from ActorHibernateBasic ac where ac.lastName = :lastName").addScalar("ac.ID", new IntegerType()).setString("lastName", lastName);
+		Query queries = session.createQuery("select ID, lastName from ActorHibernateBasic ac where ac.lastName = :lastName").setString("lastName", lastName);
+		System.out.println("Inside the loop (retrieveAllDataUsingLastName)");
+		return queries.list();
 	}
 }
