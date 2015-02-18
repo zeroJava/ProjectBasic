@@ -1,5 +1,6 @@
 package basicApplication.databaseEngine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -22,11 +23,22 @@ public class DatabaseSearchEng {
 		return (ActorHibernateBasic) query;
 	}
 	
-	public List<ActorHibernateBasic> retrieveAllDataUsingLastName(Session session, String lastName)
+	public ActorHibernateBasic retrieveAllDataUsingLastName(Session session, String lastName)
 	{
 		//Query query = session.createSQLQuery("select ID, lastName from ActorHibernateBasic ac where ac.lastName = :lastName").addScalar("ac.ID", new IntegerType()).setString("lastName", lastName);
-		Query queries = session.createQuery("select ID, lastName from ActorHibernateBasic ac where ac.lastName = :lastName").setString("lastName", lastName);
+		Query queries = session.createQuery("select ID, firstName from ActorHibernateBasic ac where ac.lastName = :lastName").setString("lastName", lastName);
 		System.out.println("Inside the loop (retrieveAllDataUsingLastName)");
-		return queries.list();
+		ArrayList<ActorHibernateBasic> list = (ArrayList<ActorHibernateBasic>) queries.list();
+		
+		if(!list.isEmpty())
+		{
+			System.out.println("the is not empty");
+			System.out.println(list.size());
+		}
+		
+		System.out.println("past stage 1");
+		ActorHibernateBasic[] basics = list.toArray(new ActorHibernateBasic[list.size()]);
+		System.out.println("past stage 2");
+		return basics[0];
 	}
 }
