@@ -21,7 +21,7 @@ public class HibernateUtilitiess {
 		}
 		catch(Throwable ex)
 		{
-			System.out.println("error");
+			System.out.println("Error: HibernateUntilities could not configure");
 			throw new ExceptionInInitializerError(ex);
 		}
 	}

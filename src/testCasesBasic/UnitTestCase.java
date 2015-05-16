@@ -27,12 +27,12 @@ public class UnitTestCase {
 		transaction.commit();
 		session.close();
 		
-		session = HibernateUtilitiess.getSessionFactory().openSession();
+		/*session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
-		ActorHibernateBasic lancel = new ActorHibernateBasic("JONNY", "BLAZZE");
+		ActorHibernateBasic lancel = new ActorHibernateBasic("LANCEL", "MAHOGANY");
 		session.save(lancel);
 		transaction.commit();
-		session.close();
+		session.close();*/
 		
 		session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();

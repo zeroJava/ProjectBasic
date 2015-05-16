@@ -15,10 +15,10 @@
 		<property name="lastName" column="last_name" type="string" />
 	</class>
 
-	<!-- 
+	<!--  
 	<query name="findAllByID">
         <![CDATA[select * from ActorHibernateBasic ac where ac.ID = :ID]]>
-	</query>   -->
+	</query> -->
 	<query name="findIDByLastName">
         <![CDATA[select ID from ActorHibernateBasic ac where ac.lastName = :lastName]]>
 	</query>
