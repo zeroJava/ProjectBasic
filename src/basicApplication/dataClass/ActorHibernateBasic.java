@@ -14,12 +14,12 @@ public class ActorHibernateBasic {
 	private String firstName;
 	private Date date;
 	
-	// this is a persistence class, which means that this class a class representation of table in the 
-	// database.
-	// So when we make data, we could create an instance of this class, and will automatically be stored to 
-	// the table (database).
-	// This why this called a persistence class, because data will still exist, even after that object is
-	// executing.
+	/* this is a persistence class, which means that this class a class representation of table in the 
+	   database. */
+	/* So when we make data, we could create an instance of this class, and will automatically be stored to 
+	   the table (database).*/
+	/* This why this called a persistence class, because data will still exist, even after that object is
+	   executing. */
 	
 	public ActorHibernateBasic()
 	{

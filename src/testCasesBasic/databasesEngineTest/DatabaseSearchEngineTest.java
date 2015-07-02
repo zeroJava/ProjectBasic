@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
-import basicApplication.databaseEngine.HibernateUtilitiess;
+import basicApplication.utilitiesEngine.HibernateUtilitiess;
 
 public class DatabaseSearchEngineTest {
 

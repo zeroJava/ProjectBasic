@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import basicApplication.dataClass.ActorHibernateBasic;
-import basicApplication.databaseEngine.HibernateUtilitiess;
+import basicApplication.utilitiesEngine.HibernateUtilitiess;
 
 public class UnitTestCase {
 
