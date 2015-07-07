@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class ActorHibernateBasic {
 	
 	@Id
-	private int ID;
+	private int ID; // this private, but hibernate can still access the this variable directly.
 	private String lastName;
 	private String firstName;
 	private Date date;
@@ -21,9 +21,10 @@ public class ActorHibernateBasic {
 	/* This why this called a persistence class, because data will still exist, even after that object is
 	   executing. */
 	
-	public ActorHibernateBasic()
+	public ActorHibernateBasic()// constructor require to public for visibility for hibernate proxies
 	{
-		
+		/* we need an empty constructor to make hibernate happy, and style the class is written is in java-bean 
+		   style with constructors, setters and getter, which is the recommended style */
 	}
 	
 	public ActorHibernateBasic(String firstName, String lastName)

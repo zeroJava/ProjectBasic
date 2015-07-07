@@ -31,7 +31,9 @@
 
 		<!-- Names the annotated entity class -->
 		<!--  <mapping class="basicApplication.dataClass.ActorHibernateBasic"/>                 -->
-		<mapping resource="basicApplication/dataClass/actorHibernateBasic.hbm.xml"/>                 
+		<mapping resource="basicApplication/dataClass/actorHibernateBasic.hbm.xml"/>
+		<mapping resource="basicApplication/dataClass/cityHibernate.hbm.xml"/>
+		<mapping resource="basicApplication/dataClass/countryHibernate.hbm.xml"/>                
 	</session-factory>
 
 </hibernate-configuration>
