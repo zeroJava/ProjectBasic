@@ -1,0 +1,44 @@
+ Session and transaction.
+
+ ---------------------------------------| What is a session? |------------------------------------------------------
+ 
+ The session is hibernate service that forms a temporary connection(path) to the database table to store and
+ receive data. Because session are temporary connection, they must close immediately after being open.
+ 
+ ::Note::
+ In other words, the hibernate session service is similar to a navigation system, in the sense when needed, it will
+ create a path for you to get from point 'A': being the java application to point 'B': the database table.
+ 
+ ::Note::
+ Data from the session is used for the transaction. Sessions are NOT thread safe, meaning that they should not be 
+ used in multi-threading.  
+   
+ Is a thread that helps manage stuff by forming a connection that helps storing and retrieving data. 
+ The session is the infrastructure(connection) that lets you do hibernetty stuff.
+ 
+ 
+ -------------------------------------| What is transaction? |-----------------------------------------------------
+ 
+ The transaction is the action service of hibernate, meaning when you need something done like store or retrieving 
+ data from the database table, then you'll have to attach it to a transaction.
+ 
+ ::Note::
+ So transaction is needed to store and retrieve data from the database. basically, if anything is going to happen,
+ the it has to be done within its boundaries.
+ 
+ e.g. How session-factory, session and transaction work together
+ 
+ |----------------------------------------------------------------------------------------------------------------
+ | Configuration config = new Configuration().configure();
+ | Session-factory factory = config.buildSessionFactory();
+ | Session session = factory.openSession();
+ |
+ | Transaction tns = session.beginTransaction();
+ | getData(); 
+ | saveData();
+ | tnx.commit();
+ | /* everything with tns = session.beginTransaction() up to the tnx.commit is the transaction boundary*\
+ |
+ | session.close();
+ |
+ |------------------------------------------------------------------------------------------------------------------

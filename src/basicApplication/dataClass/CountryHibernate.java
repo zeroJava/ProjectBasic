@@ -3,8 +3,13 @@ package basicApplication.dataClass;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class CountryHibernate {
 	
+	@Id
 	private int countryID;
 	private String countryName;
 	private int update;

@@ -27,18 +27,18 @@ public class UnitTestCase {
 		transaction.commit();
 		session.close();
 		
-		/*session = HibernateUtilitiess.getSessionFactory().openSession();
-		transaction = session.beginTransaction();
-		ActorHibernateBasic lancel = new ActorHibernateBasic("LANCEL", "MAHOGANY");
-		session.save(lancel);
-		transaction.commit();
-		session.close();*/
-		
 		session = HibernateUtilitiess.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		ActorHibernateBasic zero = new ActorHibernateBasic("ZE", "CO");
+		session.save(zero);
+		transaction.commit();
+		session.close();
+		
+		/*session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
 		Query query = session.getNamedQuery("findIDByLastName").setString("lastName", "MAHOGANY");
 		System.out.println(query.uniqueResult());
 		transaction.commit();
-		session.close();
+		session.close();*/
 	}
 }

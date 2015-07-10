@@ -2,8 +2,13 @@ package basicApplication.dataClass;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class CityHibernate {
 	
+	@Id
 	private int cityID;
 	private String name;
 	private int countryID;
