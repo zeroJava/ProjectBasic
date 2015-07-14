@@ -28,15 +28,15 @@
  
  e.g. How session-factory, session and transaction work together
  
- |----------------------------------------------------------------------------------------------------------------
- | Configuration config = new Configuration().configure();
- | Session-factory factory = config.buildSessionFactory();
- | Session session = factory.openSession();
- |
- | Transaction tns = session.beginTransaction();
- | getData(); 
- | saveData();
- | tnx.commit();
+ |----------------------------------------------------------------------------------------------------------------|
+ | Configuration config = new Configuration().configure();														  |
+ | Session-factory factory = config.buildSessionFactory();														  |
+ | Session session = factory.openSession();																		  |
+ |																												  |
+ | Transaction tns = session.beginTransaction();																  |
+ | getData(); 																									  |
+ | saveData();																									  |
+ | tnx.commit();																								  |
  | /* everything with tns = session.beginTransaction() up to the tnx.commit is the transaction boundary*\
  |
  | session.close();

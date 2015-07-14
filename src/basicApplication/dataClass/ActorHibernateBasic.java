@@ -89,8 +89,7 @@ public class ActorHibernateBasic {
 	@Override
 	public String toString() 
 	{
-		return ("ActorHibernateBasic [ID=" + ID + ", lastName=" + lastName
-				+ ", firstName=" + firstName + ", date=" + date + "]");
+		return (ID + " " + firstName + " " + lastName);
 	}
 
 	@Override

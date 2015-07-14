@@ -1,5 +1,7 @@
 package basicApplication.databaseEngine;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,12 +21,14 @@ public class DatabaseSearchEng {
 
 	public ActorHibernateBasic retrieveAllDataUsingFirstName(Session session, String firstName)
 	{
-		Query query = session.createQuery("select ID, lastName from ActorHibernateBasic ac where ac.firstName = :firstName").setString("firstName", firstName);
-		return (ActorHibernateBasic) query;
+		return null;
 	}
 	
-	public ActorHibernateBasic retrieveAllDataUsingLastName(Session session, String lastName)
+	public static List<ActorHibernateBasic> retrieveAllDataUsingLastName(Session session, String lastName)
 	{
-		return null;
+		Query query = session.getNamedQuery("getAllUsingLastName").setString("lastName", lastName);
+		@SuppressWarnings("unchecked")
+		List<ActorHibernateBasic> list = query.list();
+		return list;
 	}
 }

@@ -1,0 +1,42 @@
+ Persistent class(entity)
+ 
+ -----------------------------------| What is a persistence class(entity)? |---------------------------------------
+ 
+ The persistence class(entity) are POJO (plain old java object) that can be persisted, meaning that object of 
+ that class can be stored into the database table.
+ 
+ ::Note:: persistence explained
+ The meaning of persistence is that the object of a certain class still exists after the application is closed.
+ Meaning, when we create an object, the data of that object will still exist, because we have stored a copy of
+ the data onto database table.
+ 
+ ::Note::
+ What make the POJO class an persistence class is the @entity annotation, which are like comments to for the 
+ compiler saying this class is a entity class.
+ 
+ ::Note::
+ A persistence class in other words is a java class version of the SQL database table. e.g.
+ 
+ 	  persistence class								     SQL table
+ |------------------------------|				|-----------------------------|
+ |@entity						|				|| ID | firstName | lastName ||
+ |public class Student {		|				||	  |			  |			 ||
+ |	public int ID;				|				||	  |			  |			 ||
+ |	public String firstName;	|				|-----------------------------|
+ |	public string lastName;		|				|-----------------------------|
+ |								|				|-----------------------------|
+ |}								|				|-----------------------------|
+ |------------------------------|				|							  |
+ 
+ 
+ --------------------------------------| State of an object |------------------------------------------------------
+ 
+ The state of an object of an entity class:
+ 
+ - transient: where the object from the entity class has not interacted with the session service. So basically 
+ when a object is first created it's in a transient state.
+ 
+ - persistent: where the object from the entity class session attached to it.
+ 
+ - detached: where the object of the entity class was persistent, but now the session is close and detached from 
+ the object.

@@ -1,0 +1,26 @@
+ Hibernate mapping and named query
+ 
+ --------------------------------------| What is hibernate mapping |-----------------------------------------------
+ 
+ Hibernate mapping contains information about the java class and the database table, so it can connect the two 
+ entities together and help them communicate.
+ 
+ ::Note::
+ So basically the hibernate mapping is an xml fire or JPA annotations that contain information that acts as a 
+ bridge to help connect the the variables in the java class to the fields in the database table, and them communicate
+ back and forth.
+ 
+ e.g.
+ 			mapping.hbm.xml
+ |------------------------------------------------|
+ | class name: Student  table: StudentsData		  |
+ | name: ID   type: integer   column: studentName |
+ |												  |
+ |------------------------------------------------| 
+  
+  the type is associated with data-type from the SQL language
+  
+  --------------------------------------| What is hibernate named query |-----------------------------------------
+  
+  Named queries are HQL code that are written in the mapping document, which can be used in the java by executing 
+  the name assigened to the HQL named query. 
