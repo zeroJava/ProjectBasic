@@ -89,7 +89,7 @@ public class ActorHibernateBasic {
 	@Override
 	public String toString() 
 	{
-		return (ID + " " + firstName + " " + lastName);
+		return (getID() + " " + getFirstName() + " " + getLastName());
 	}
 
 	@Override
@@ -98,10 +98,8 @@ public class ActorHibernateBasic {
 		int result = 1;
 		result = prime * result + ID;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result
-				+ ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result
-				+ ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		return result;
 	}
 

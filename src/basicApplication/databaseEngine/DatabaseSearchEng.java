@@ -24,11 +24,10 @@ public class DatabaseSearchEng {
 		return null;
 	}
 	
-	public static List<ActorHibernateBasic> retrieveAllDataUsingLastName(Session session, String lastName)
+	@SuppressWarnings("unchecked")
+	public static List<Object []> retrieveAllActorsWithLastName(Session session, String lastName)
 	{
 		Query query = session.getNamedQuery("getAllUsingLastName").setString("lastName", lastName);
-		@SuppressWarnings("unchecked")
-		List<ActorHibernateBasic> list = query.list();
-		return list;
+		return query.list();
 	}
 }

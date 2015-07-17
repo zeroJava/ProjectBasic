@@ -1,6 +1,5 @@
 package testCasesBasic.databasesEngineTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -11,14 +10,14 @@ import org.hibernate.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 
-import basicApplication.dataClass.ActorHibernateBasic;
 import basicApplication.databaseEngine.DatabaseSearchEng;
 import basicApplication.utilitiesEngine.HibernateUtilitiess;
 
 public class DatabaseSearchEngineTest {
 
-	private SessionFactory factory;
-	private Session session;
+	private SessionFactory factory = null;
+	private Session session = null;
+	private Transaction transaction = null;
 
 	@Before
 	public void setup()
@@ -26,39 +25,56 @@ public class DatabaseSearchEngineTest {
 		try
 		{
 			factory = HibernateUtilitiess.getSessionFactory();
-		} 
+		}
 		catch (HibernateException ex)
 		{
 			System.out.println("factory wasnt made wasnt made");
 			System.exit(0);
 		}
 	}
-		
+
 	@Test
 	public void test()
 	{
-		session = factory.openSession();
-		Transaction transaction = session.beginTransaction();
-		Query query = session.getNamedQuery("findIDByLastName").setString("lastName", "MAHOGANY");
-		System.out.println(query.uniqueResult());
-		transaction.commit();
-		session.close();
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			Query query = session.getNamedQuery("findIDByLastName").setString("lastName", "MAHOGANY");
+			System.out.println(query.uniqueResult());
+			transaction.commit();
+		}
+		catch (HibernateException he)
+		{
+			he.getMessage();
+		}
+		finally
+		{
+			session.close();
+		}
 	}
-	
+
 	@Test
 	public void testGetAllDataUsingLastame()
 	{
-		session = factory.openSession();
-		Transaction transaction = session.beginTransaction();
-		List<ActorHibernateBasic> list = DatabaseSearchEng.retrieveAllDataUsingLastName(session, "GUINESS");
-		int index = 0;
-		while(!list.isEmpty())
+		try
 		{
-			ActorHibernateBasic actor = list.get(index);
-			System.out.println(actor);
-			index++;
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			List<Object[]> list = DatabaseSearchEng.retrieveAllActorsWithLastName(session, "GUINESS");
+			for (Object[] object : list)
+			{
+				System.out.println(object[0] + " " + object[1] + " "+ object[2]);
+			}
+			transaction.commit();
 		}
-		transaction.commit();
-		session.close();
+		catch (HibernateException he)
+		{
+			he.getMessage();
+		}
+		finally
+		{
+			session.close();
+		}
 	}
 }
