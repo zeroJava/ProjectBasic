@@ -19,13 +19,13 @@ public class DatabaseSearchEng {
 		return allUserDetails;
 	}
 
-	public ActorHibernateBasic retrieveAllDataUsingFirstName(Session session, String firstName)
+	public static List<?> retrieveAllActorWithFirstName(Session session, String firstName)
 	{
-		return null;
+		Query query = session.getNamedQuery("getAllUsingFirstName").setString("firstName", firstName);
+		return query.list();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static List<Object []> retrieveAllActorsWithLastName(Session session, String lastName)
+	public static List<?> retrieveAllActorsWithLastName(Session session, String lastName)
 	{
 		Query query = session.getNamedQuery("getAllUsingLastName").setString("lastName", lastName);
 		return query.list();

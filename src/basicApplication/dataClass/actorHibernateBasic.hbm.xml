@@ -25,7 +25,13 @@
 	<query name="findFirstNameByLastName">
 		<![CDATA[select firstName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
 	</query>
+	<query name="findLastNameByFirstName">
+		<![CDATA[select lastName from ActorHibernateBasic ac where ac.firstName = :firstName]]>
+	</query>
 	<query name="getAllUsingLastName">
 		<![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
+	</query>
+	<query name="getAllUsingFirstName">
+		<![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.firstName = :firstName]]>
 	</query>
 </hibernate-mapping>
