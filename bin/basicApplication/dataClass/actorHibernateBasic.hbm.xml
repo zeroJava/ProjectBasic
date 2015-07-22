@@ -16,6 +16,9 @@
 	</class>
 
 	
+	<query name="findAllActors">
+        <![CDATA[select ID, firstName, lastName from ActorHibernateBasic]]>
+	</query>
 	<query name="findAllByID">
         <![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.ID = :ID]]>
 	</query>

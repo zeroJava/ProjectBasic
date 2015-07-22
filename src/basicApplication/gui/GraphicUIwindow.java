@@ -24,8 +24,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import basicApplication.databaseEngine.DatabaseSearchEng;
-import basicApplication.utilitiesEngine.HibernateUtilitiess;
-
 
 public class GraphicUIwindow extends JFrame{
 
@@ -43,8 +41,9 @@ public class GraphicUIwindow extends JFrame{
 	
 	private Container container;
 	
-	public GraphicUIwindow()
+	public GraphicUIwindow(SessionFactory factory)
 	{
+		this.factory = factory;
 		setLayout();
 		createTextAreaAndTable();
 		postitioningTheCoponentsInJFrame();
@@ -137,7 +136,6 @@ public class GraphicUIwindow extends JFrame{
 		createColumsData();
 		model.setColumnIdentifiers(columns);
 		table.setModel(model);
-		model.addRow(rows);	
 	}
 	
 	public void createColumsData()
@@ -147,23 +145,25 @@ public class GraphicUIwindow extends JFrame{
 		columns.add("LastName");
 	}
 	
-	private void getValueFromData(List<Object[]> list)
+	public void getValueFromData(List<Object[]> list)
 	{
 		if(!rows.isEmpty())
 		{
-			rows.clear();
+			reValidateTable();
 		}
 		
 		rows.addAll(list);
+		
 		for(int i = 0; i < rows.size(); i++)
 		{
-			/*Object[] object = new Object[3];
-			object[0] = "" + 1 * i;
-			object[1] = "" + 2 * i;
-			object[2] = "" + 3 * i;
-			rows.add(object);*/
 			model.addRow(rows.get(i));	
 		}
+	}
+	
+	public void reValidateTable()
+	{
+		rows.clear();
+		model.fireTableDataChanged();
 	}
 	
 	public void initialiseButtonsWithActions()
@@ -178,14 +178,14 @@ public class GraphicUIwindow extends JFrame{
 		{
 			//SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
 			//optionDialogBox.setLayoutOfSearchOptionDialogBox();
-			factory = HibernateUtilitiess.getSessionFactory();
 			Session session = null;
 			Transaction transaction = null;
 			try
 			{
 				session = factory.openSession();
 				transaction = session.beginTransaction();
-				List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, "GUINESS");
+				@SuppressWarnings("unchecked")
+				List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
 				getValueFromData(list);
 				transaction.commit();
 			}

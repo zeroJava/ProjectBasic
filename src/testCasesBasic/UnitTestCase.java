@@ -2,7 +2,6 @@ package testCasesBasic;
 
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
@@ -19,6 +18,7 @@ public class UnitTestCase {
 	{	
 		Session session = HibernateUtilitiess.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
+		@SuppressWarnings("unchecked")
 		List<Integer> list = session.createQuery("SELECT ID FROM ActorHibernateBasic").list();
 		for(Integer aBasic : list)
 		{

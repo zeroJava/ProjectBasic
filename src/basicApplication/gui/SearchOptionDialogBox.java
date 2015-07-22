@@ -4,7 +4,8 @@ import javax.swing.JDialog;
 
 public class SearchOptionDialogBox extends JDialog{
 	
-	public enum selections {
+	public enum selections 
+	{
 		ID, FIRSTNAME, LASTNAME
 	}
 	
@@ -24,6 +25,7 @@ public class SearchOptionDialogBox extends JDialog{
 		setLocationRelativeTo(null);
 	}
 	
+	@SuppressWarnings("unused")
 	private void selectFilteredSearchOption()
 	{
 		

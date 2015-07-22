@@ -32,6 +32,31 @@ public class DatabaseSearchEngineTest {
 			System.exit(0);
 		}
 	}
+	
+	@Test
+	public void testGettingEveything()
+	{
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
+			for (Object[] object : list)
+			{
+				System.out.println(object[0] + " " + object[1] + " "+ object[2]);
+			}
+			transaction.commit();
+		}
+		catch(HibernateException he)
+		{
+			System.out.println(he.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+	}
 
 	@Test
 	public void test()
@@ -61,6 +86,7 @@ public class DatabaseSearchEngineTest {
 		{
 			session = factory.openSession();
 			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
 			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, "GUINESS");
 			for (Object[] object : list)
 			{
@@ -85,6 +111,7 @@ public class DatabaseSearchEngineTest {
 		{
 			session = factory.openSession();
 			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
 			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, "ED");
 			for (Object[] object : list)
 			{

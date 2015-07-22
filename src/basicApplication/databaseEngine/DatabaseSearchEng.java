@@ -10,7 +10,13 @@ import basicApplication.dataClass.ActorHibernateBasic;
 
 public class DatabaseSearchEng {
 	
-	public ActorHibernateBasic retrieveAllDataUsingID(Session session, int ID)
+	public static List<?> retrieveAllActors(Session session)
+	{
+		Query query = session.getNamedQuery("findAllActors");
+		return query.list();
+	}
+	
+	public ActorHibernateBasic retrieveAllActorsWithID(Session session, int ID)
 	{
 		//Query query = session.getNamedQuery("findAllByID").setInteger("ID", ID);
 		Transaction transaction = session.beginTransaction();
