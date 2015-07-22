@@ -6,17 +6,25 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import basicApplication.databaseEngine.DatabaseSearchEng;
+import basicApplication.utilitiesEngine.HibernateUtilitiess;
 
 
 public class GraphicUIwindow extends JFrame{
@@ -28,9 +36,10 @@ public class GraphicUIwindow extends JFrame{
 	private DefaultTableModel model;
 	private JTable table;
 	private Vector<Object> columns = new Vector<Object>();
-	private Vector<Object> rows = new Vector<Object>();
+	private Vector<Object[]> rows = new Vector<Object[]>();
 	private JScrollPane scrollPane;
-	private JPanel panel;
+	
+	private SessionFactory factory;
 	
 	private Container container;
 	
@@ -114,9 +123,10 @@ public class GraphicUIwindow extends JFrame{
 		table.setPreferredScrollableViewportSize(new Dimension(700, 300));
 		table.setFillsViewportHeight(true);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setViewportView(table);
 		
-		/* ------------------------- Giving the text area a dark line.--------------------------------------*/
+		/* ------------------------- Giving the text area a dark line.-------------------------------------- */
 		//textAreas.get("mainTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		scrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		textAreas.get("LoggingTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
@@ -127,13 +137,7 @@ public class GraphicUIwindow extends JFrame{
 		createColumsData();
 		model.setColumnIdentifiers(columns);
 		table.setModel(model);
-		for(int i = 0; i < 100; i++)
-		{
-			rows.add("" + i);
-		}
-		model.addRow(rows);
-		model.addRow(rows);
-		model.addRow(rows);
+		model.addRow(rows);	
 	}
 	
 	public void createColumsData()
@@ -142,7 +146,26 @@ public class GraphicUIwindow extends JFrame{
 		columns.add("FirstName");
 		columns.add("LastName");
 	}
+	
+	private void getValueFromData(List<Object[]> list)
+	{
+		if(!rows.isEmpty())
+		{
+			rows.clear();
+		}
 		
+		rows.addAll(list);
+		for(int i = 0; i < rows.size(); i++)
+		{
+			/*Object[] object = new Object[3];
+			object[0] = "" + 1 * i;
+			object[1] = "" + 2 * i;
+			object[2] = "" + 3 * i;
+			rows.add(object);*/
+			model.addRow(rows.get(i));	
+		}
+	}
+	
 	public void initialiseButtonsWithActions()
 	{
 		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
@@ -155,7 +178,25 @@ public class GraphicUIwindow extends JFrame{
 		{
 			//SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
 			//optionDialogBox.setLayoutOfSearchOptionDialogBox();
-			
+			factory = HibernateUtilitiess.getSessionFactory();
+			Session session = null;
+			Transaction transaction = null;
+			try
+			{
+				session = factory.openSession();
+				transaction = session.beginTransaction();
+				List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, "GUINESS");
+				getValueFromData(list);
+				transaction.commit();
+			}
+			catch(HibernateException he)
+			{
+				System.out.println(he.getMessage());
+			}
+			finally
+			{
+				session.close();
+			}
 		}
 	}
 }
