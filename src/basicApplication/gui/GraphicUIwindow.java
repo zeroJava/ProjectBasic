@@ -45,7 +45,7 @@ public class GraphicUIwindow extends JFrame{
 	{
 		this.factory = factory;
 		setLayout();
-		createTextAreaAndTable();
+		initialiseTextAreaAndTable();
 		postitioningTheCoponentsInJFrame();
 		initialiseButtonsWithActions();
 	}
@@ -63,8 +63,8 @@ public class GraphicUIwindow extends JFrame{
 	public void postitioningTheCoponentsInJFrame()
 	{
 		//---------------------- Generating the components ---------------------------------------------------
-		createTextAreaAndTable();
-		createButtons();
+		initialiseTextAreaAndTable();
+		initialiseButtons();
 		createTableContent();
 		
 		container = this.getContentPane();
@@ -91,7 +91,7 @@ public class GraphicUIwindow extends JFrame{
 		buttons.get("Exit").setBounds(30, 150, 200, 50);
 	}
 	
-	public void createButtons()
+	public void initialiseButtons()
 	{
 		/* Generate the button, by assigning them values --------- */
 		buttons.put("TestButton", new JButton("TestButton"));
@@ -110,7 +110,7 @@ public class GraphicUIwindow extends JFrame{
 		return buttons;
 	}
 	
-	private void createTextAreaAndTable()
+	private void initialiseTextAreaAndTable()
 	{
 		/* generating the text area and table, by assigning them values */ 
 		//textAreas.put("mainTextBoxWindow", new JTextArea(10, 70)); this text area has been replace with a table.
@@ -128,17 +128,18 @@ public class GraphicUIwindow extends JFrame{
 		/* ------------------------- Giving the text area a dark line.-------------------------------------- */
 		//textAreas.get("mainTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		scrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-		textAreas.get("LoggingTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		textAreas.get("LoggingTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10))); 
+		// Borderfactory.createEmptyBorder() create empty space around the border.
 	}
 	
 	public void createTableContent()
 	{
-		createColumsData();
+		initialiseColumsData();
 		model.setColumnIdentifiers(columns);
 		table.setModel(model);
 	}
 	
-	public void createColumsData()
+	public void initialiseColumsData()
 	{
 		columns.add("ID");
 		columns.add("FirstName");
@@ -169,15 +170,26 @@ public class GraphicUIwindow extends JFrame{
 	public void initialiseButtonsWithActions()
 	{
 		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
+		buttons.get("Display Info").addActionListener(new DisplayInfoActionListner());
 	}
 	
-	private class SerachButtonActionListenerClass implements ActionListener{
+	private class SerachButtonActionListenerClass implements ActionListener
+	{
 
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			//SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
+			@SuppressWarnings("unused")
+			SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
 			//optionDialogBox.setLayoutOfSearchOptionDialogBox();
+		}
+	}
+	
+	private class DisplayInfoActionListner implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
 			Session session = null;
 			Transaction transaction = null;
 			try
