@@ -146,7 +146,7 @@ public class GraphicUIwindow extends JFrame{
 		columns.add("LastName");
 	}
 	
-	public void getValueFromData(List<Object[]> list)
+	public void setValueFromData(List<Object[]> list)
 	{
 		if(!rows.isEmpty())
 		{
@@ -165,6 +165,7 @@ public class GraphicUIwindow extends JFrame{
 	{
 		rows.clear();
 		model.fireTableDataChanged();
+		model.setRowCount(0);
 	}
 	
 	public void initialiseButtonsWithActions()
@@ -173,15 +174,19 @@ public class GraphicUIwindow extends JFrame{
 		buttons.get("Display Info").addActionListener(new DisplayInfoActionListner());
 	}
 	
+	public void actionGUI()
+	{
+		new SearchOptionDialogBox(this);
+	}
+	
 	private class SerachButtonActionListenerClass implements ActionListener
 	{
 
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			@SuppressWarnings("unused")
-			SearchOptionDialogBox optionDialogBox = new SearchOptionDialogBox();
-			//optionDialogBox.setLayoutOfSearchOptionDialogBox();
+			actionGUI();
+			System.out.println("gdhg");
 		}
 	}
 	
@@ -198,7 +203,7 @@ public class GraphicUIwindow extends JFrame{
 				transaction = session.beginTransaction();
 				@SuppressWarnings("unchecked")
 				List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
-				getValueFromData(list);
+				setValueFromData(list);
 				transaction.commit();
 			}
 			catch(HibernateException he)

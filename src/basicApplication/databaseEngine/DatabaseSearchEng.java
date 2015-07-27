@@ -16,13 +16,19 @@ public class DatabaseSearchEng {
 		return query.list();
 	}
 	
-	public ActorHibernateBasic retrieveAllActorsWithID(Session session, int ID)
+	public ActorHibernateBasic retrieveAllActorsWithID(Session session, int ID, String empty)
 	{
 		//Query query = session.getNamedQuery("findAllByID").setInteger("ID", ID);
 		Transaction transaction = session.beginTransaction();
 		ActorHibernateBasic allUserDetails = (ActorHibernateBasic) session.get(ActorHibernateBasic.class, ID);
 		transaction.commit();
 		return allUserDetails;
+	}
+	
+	public static List<?> retrieveAllActorsWithID(Session session, int ID)
+	{
+		Query query = session.getNamedQuery("findAllByID").setInteger("ID", ID);
+		return query.list();
 	}
 
 	public static List<?> retrieveAllActorWithFirstName(Session session, String firstName)
