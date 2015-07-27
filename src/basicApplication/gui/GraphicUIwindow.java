@@ -18,12 +18,8 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
-import basicApplication.databaseEngine.DatabaseSearchEng;
 
 public class GraphicUIwindow extends JFrame{
 
@@ -37,13 +33,13 @@ public class GraphicUIwindow extends JFrame{
 	private Vector<Object[]> rows = new Vector<Object[]>();
 	private JScrollPane scrollPane;
 	
-	private SessionFactory factory;
+	//private SessionFactory factory;
 	
 	private Container container;
 	
 	public GraphicUIwindow(SessionFactory factory)
 	{
-		this.factory = factory;
+		//this.factory = factory;
 		setLayout();
 		initialiseTextAreaAndTable();
 		postitioningTheCoponentsInJFrame();
@@ -88,7 +84,7 @@ public class GraphicUIwindow extends JFrame{
 		buttons.get("Display Info").setBounds(30, 90, 200, 50);
 		
 		container.add(buttons.get("Exit"));
-		buttons.get("Exit").setBounds(30, 150, 200, 50);
+		buttons.get("Exit").setBounds(30, 470, 200, 50);
 	}
 	
 	public void initialiseButtons()
@@ -172,6 +168,7 @@ public class GraphicUIwindow extends JFrame{
 	{
 		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
 		buttons.get("Display Info").addActionListener(new DisplayInfoActionListner());
+		buttons.get("Exit").addActionListener(new ExitActionListener());
 	}
 	
 	public void actionGUI()
@@ -195,25 +192,16 @@ public class GraphicUIwindow extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Session session = null;
-			Transaction transaction = null;
-			try
-			{
-				session = factory.openSession();
-				transaction = session.beginTransaction();
-				@SuppressWarnings("unchecked")
-				List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
-				setValueFromData(list);
-				transaction.commit();
-			}
-			catch(HibernateException he)
-			{
-				System.out.println(he.getMessage());
-			}
-			finally
-			{
-				session.close();
-			}
+			//
+		}
+	}
+	
+	private class ExitActionListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			System.exit(0);	
 		}
 	}
 }

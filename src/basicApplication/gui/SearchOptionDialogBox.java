@@ -46,7 +46,7 @@ public class SearchOptionDialogBox extends JDialog{
 	
 	public SearchOptionDialogBox(GraphicUIwindow gui)
 	{
-		this.minGUI = gui;
+		this.minGUI = gui; // this will ensure the presence of the main GUI is present during this sub-process
 		factory = HibernateUtilitiess.getSessionFactory();
 		this.setLayoutOfSearchOptionDialogBox();
 	}
@@ -221,7 +221,13 @@ public class SearchOptionDialogBox extends JDialog{
 				{
 					list = decisionToSearch(session, searchOption, searchValue);
 				}
-				minGUI.setValueFromData(list); //http://www.dreamincode.net/forums/topic/305238-pass-info-from-jdialog-to-jframe/
+				
+				if(list != null)
+				{
+					minGUI.setValueFromData(list); //http://www.dreamincode.net/forums/topic/305238-pass-info-from-jdialog-to-jframe/
+					// action here will directly deal with the main GUI
+				}
+				
 				transaction.commit();
 			}
 			catch(HibernateException he)
