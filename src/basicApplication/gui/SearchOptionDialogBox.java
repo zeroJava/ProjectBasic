@@ -77,7 +77,7 @@ public class SearchOptionDialogBox extends JDialog{
 		buttonGroup.add(radioButtons.get("LastName"));
 		buttonGroup.add(radioButtons.get("All"));
 		
-		buttons.put("Close", new JButton("Close"));
+		buttons.put("Search", new JButton("Search"));
 	}
 	
 	public void positionComponents()
@@ -105,8 +105,8 @@ public class SearchOptionDialogBox extends JDialog{
 		container.add(radioButtons.get("All"));
 		radioButtons.get("All").setBounds(280, 70, 70, 50);
 		
-		container.add(buttons.get("Close"));
-		buttons.get("Close").setBounds(340, 25, 100, 40);
+		container.add(buttons.get("Search"));
+		buttons.get("Search").setBounds(340, 25, 100, 40);
 	}
 	
 	public void setEditableTextField(boolean state)
@@ -133,7 +133,7 @@ public class SearchOptionDialogBox extends JDialog{
 	
 	public void addActionToButtons()
 	{
-		buttons.get("Close").addActionListener(new SearchButtonActionListener());
+		buttons.get("Search").addActionListener(new SearchButtonActionListener());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -212,11 +212,16 @@ public class SearchOptionDialogBox extends JDialog{
 				session = factory.openSession();
 				transaction = session.beginTransaction();
 				searchValue = textFields.get("Search Text Area").getText();
-				if(!searchOption.isEmpty() && !searchValue.isEmpty())
+				List<Object[]> list = null;
+				if(searchOption.equals("All"))
 				{
-					List<Object[]> list = decisionToSearch(session, searchOption, searchValue);
-					minGUI.setValueFromData(list); //http://www.dreamincode.net/forums/topic/305238-pass-info-from-jdialog-to-jframe/
+					list = decisionToSearch(session, searchOption, searchValue);
 				}
+				else if(!searchOption.isEmpty() && !searchValue.isEmpty())
+				{
+					list = decisionToSearch(session, searchOption, searchValue);
+				}
+				minGUI.setValueFromData(list); //http://www.dreamincode.net/forums/topic/305238-pass-info-from-jdialog-to-jframe/
 				transaction.commit();
 			}
 			catch(HibernateException he)
