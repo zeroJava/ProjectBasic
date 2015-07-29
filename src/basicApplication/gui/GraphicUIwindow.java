@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,12 +27,13 @@ public class GraphicUIwindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Map<String, JButton> buttons = new HashMap<String, JButton>();
 	private Map<String, JTextArea> textAreas = new HashMap<String, JTextArea>();
+	private Map<String, JScrollPane> scrollArea = new HashMap<String, JScrollPane>();
 	
 	private DefaultTableModel model;
 	private JTable table;
 	private Vector<Object> columns = new Vector<Object>();
 	private Vector<Object[]> rows = new Vector<Object[]>();
-	private JScrollPane scrollPane;
+	//private JScrollPane scrollPane;
 	
 	//private SessionFactory factory;
 	
@@ -71,29 +73,35 @@ public class GraphicUIwindow extends JFrame{
 		//container.add(textAreas.get("mainTextBoxWindow")); leave this just in-case we want to revert back to JTextarea area from JTable.
 		//textAreas.get("mainTextBoxWindow").setBounds(250, 30, 700, 300);
 		
-		container.add(scrollPane);
-		scrollPane.setBounds(250, 30, 700, 300); // setting the location to 205 x and 30 y; and the size to 700 width and 300 height. 
+		//container.add(scrollPane);
+		//scrollPane.setBounds(250, 30, 700, 300); // setting the location to 205 x and 30 y; and the size to 700 width and 300 height. 
 		
-		container.add(textAreas.get("LoggingTextBoxWindow"));
-		textAreas.get("LoggingTextBoxWindow").setBounds(250, 350, 700, 170);
+		container.add(scrollArea.get(GUIConstance.ScrollForTable));
+		scrollArea.get(GUIConstance.ScrollForTable).setBounds(250, 30, 700, 300); // setting the location to 205 x and 30 y; and the size to 700 width and 300 height. 
 		
-		container.add(buttons.get("Search Database"));
-		buttons.get("Search Database").setBounds(30, 30, 200, 50);
+		container.add(scrollArea.get(GUIConstance.ScrollForTextArea));
+		scrollArea.get(GUIConstance.ScrollForTextArea).setBounds(250, 350, 700, 170);
 		
-		container.add(buttons.get("Display Info"));
-		buttons.get("Display Info").setBounds(30, 90, 200, 50);
+		//container.add(textAreas.get(GUIConstance.LoggingTextBoxWindow));
+		//textAreas.get(GUIConstance.LoggingTextBoxWindow).setBounds(250, 350, 700, 170);
 		
-		container.add(buttons.get("Exit"));
-		buttons.get("Exit").setBounds(30, 470, 200, 50);
+		container.add(buttons.get(GUIConstance.SearchDatabaseButton));
+		buttons.get(GUIConstance.SearchDatabaseButton).setBounds(30, 30, 200, 50);
+		
+		container.add(buttons.get(GUIConstance.DisplayInfoButton));
+		buttons.get(GUIConstance.DisplayInfoButton).setBounds(30, 90, 200, 50);
+		
+		container.add(buttons.get(GUIConstance.ExitApplicationButton));
+		buttons.get(GUIConstance.ExitApplicationButton).setBounds(30, 470, 200, 50);
 	}
 	
 	public void initialiseButtons()
 	{
 		/* Generate the button, by assigning them values --------- */
-		buttons.put("TestButton", new JButton("TestButton"));
-		addButtons("Exit");
-		addButtons("Search Database");
-		addButtons("Display Info");
+		//buttons.put("TestButton", new JButton("TestButton"));
+		addButtons(GUIConstance.ExitApplicationButton);
+		addButtons(GUIConstance.SearchDatabaseButton);
+		addButtons(GUIConstance.DisplayInfoButton);
 	}
 	
 	public void addButtons(String string)
@@ -110,21 +118,40 @@ public class GraphicUIwindow extends JFrame{
 	{
 		/* generating the text area and table, by assigning them values */ 
 		//textAreas.put("mainTextBoxWindow", new JTextArea(10, 70)); this text area has been replace with a table.
-		textAreas.put("LoggingTextBoxWindow", new JTextArea(10, 70));
+		
+		textAreas.put(GUIConstance.LoggingTextBoxWindow, new JTextArea()); // (10, 70) old default value
+		scrollArea.put(GUIConstance.ScrollForTextArea, new JScrollPane(textAreas.get(GUIConstance.LoggingTextBoxWindow)));
+		textAreas.get(GUIConstance.LoggingTextBoxWindow).setSize(new Dimension(700, 170));
+		
+		scrollArea.get(GUIConstance.ScrollForTextArea).setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollArea.get(GUIConstance.ScrollForTextArea).setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		//scrollArea.get(GUIConstance.ScrollForTextArea).setViewportView(textAreas.get(GUIConstance.LoggingTextBoxWindow));
 		
 		table = new JTable();
 		model = new DefaultTableModel(0, 0);
-		scrollPane = new JScrollPane(table);
+		scrollArea.put(GUIConstance.ScrollForTable, new JScrollPane(table));
 		table.setPreferredScrollableViewportSize(new Dimension(700, 300));
 		table.setFillsViewportHeight(true);
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollPane.setViewportView(table);
+		table.setEnabled(false);
+		
+		/* ------------------- adding table to scroll ------------------------- */
+		scrollArea.get(GUIConstance.ScrollForTable).setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollArea.get(GUIConstance.ScrollForTable).setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollArea.get(GUIConstance.ScrollForTable).setViewportView(table);
+		
+		/*----legacy code ----*/
+		//scrollPane = new JScrollPane(table); legacy code
+		//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); legacy code
+		//scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		//scrollPane.setViewportView(table);
+		
 		
 		/* ------------------------- Giving the text area a dark line.-------------------------------------- */
+		scrollArea.get(GUIConstance.ScrollForTable).setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		scrollArea.get(GUIConstance.ScrollForTextArea).setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		//textAreas.get(GUIConstance.LoggingTextBoxWindow).setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		//textAreas.get("mainTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-		scrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-		textAreas.get("LoggingTextBoxWindow").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10))); 
+		//scrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		// Borderfactory.createEmptyBorder() create empty space around the border.
 	}
 	
@@ -166,14 +193,19 @@ public class GraphicUIwindow extends JFrame{
 	
 	public void initialiseButtonsWithActions()
 	{
-		buttons.get("Search Database").addActionListener(new SerachButtonActionListenerClass());
-		buttons.get("Display Info").addActionListener(new DisplayInfoActionListner());
-		buttons.get("Exit").addActionListener(new ExitActionListener());
+		buttons.get(GUIConstance.SearchDatabaseButton).addActionListener(new SerachButtonActionListenerClass());
+		buttons.get(GUIConstance.DisplayInfoButton).addActionListener(new DisplayInfoActionListner());
+		buttons.get(GUIConstance.ExitApplicationButton).addActionListener(new ExitActionListener());
 	}
 	
 	public void actionGUI()
 	{
 		new SearchOptionDialogBox(this);
+	}
+	
+	public void displayLog(String text)
+	{
+		textAreas.get(GUIConstance.LoggingTextBoxWindow).append(text + " on " + Calendar.getInstance().getTime() + "\n");
 	}
 	
 	private class SerachButtonActionListenerClass implements ActionListener
@@ -192,15 +224,17 @@ public class GraphicUIwindow extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			//
+			displayLog("Action button clicked");
 		}
 	}
 	
 	private class ExitActionListener implements ActionListener
 	{
+		
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			displayLog("Exiting the application ");
 			System.exit(0);	
 		}
 	}

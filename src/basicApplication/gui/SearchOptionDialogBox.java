@@ -65,17 +65,17 @@ public class SearchOptionDialogBox extends JDialog{
 	
 	public void intialiseVaraibles()
 	{
-		textFields.put("Search Text Area", new JTextField(70));
+		textFields.put(GUIConstance.SearchValueTextField, new JTextField(70));
 		
-		radioButtons.put("ID", new JRadioButton("ID"));
-		radioButtons.put("FirstName", new JRadioButton("FirstName"));
-		radioButtons.put("LastName", new JRadioButton("LastName"));
-		radioButtons.put("All", new JRadioButton("All"));
+		radioButtons.put(GUIConstance.ID, new JRadioButton(GUIConstance.ID));
+		radioButtons.put(GUIConstance.FIRST_NAME, new JRadioButton(GUIConstance.FIRST_NAME));
+		radioButtons.put(GUIConstance.LAST_NAME, new JRadioButton(GUIConstance.LAST_NAME));
+		radioButtons.put(GUIConstance.ALL, new JRadioButton(GUIConstance.ALL));
 		
-		buttonGroup.add(radioButtons.get("ID"));
-		buttonGroup.add(radioButtons.get("FirstName"));
-		buttonGroup.add(radioButtons.get("LastName"));
-		buttonGroup.add(radioButtons.get("All"));
+		buttonGroup.add(radioButtons.get(GUIConstance.ID));
+		buttonGroup.add(radioButtons.get(GUIConstance.FIRST_NAME));
+		buttonGroup.add(radioButtons.get(GUIConstance.LAST_NAME));
+		buttonGroup.add(radioButtons.get(GUIConstance.ALL));
 		
 		buttons.put("Search", new JButton("Search"));
 	}
@@ -87,23 +87,23 @@ public class SearchOptionDialogBox extends JDialog{
 		container = this.getContentPane();
 		container.setLayout(null);
 		
-		container.add(textFields.get("Search Text Area"));
+		container.add(textFields.get(GUIConstance.SearchValueTextField));
 		setEditableTextField(true);
-		textFields.get("Search Text Area").setBounds(30, 20, 300, 50);
-		textFields.get("Search Text Area").setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		textFields.get(GUIConstance.SearchValueTextField).setBounds(30, 20, 300, 50);
+		textFields.get(GUIConstance.SearchValueTextField).setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		setOfTextField(stateOfTextField, false, false);
 		
-		container.add(radioButtons.get("ID"));
-		radioButtons.get("ID").setBounds(30, 70, 50, 50);
+		container.add(radioButtons.get(GUIConstance.ID));
+		radioButtons.get(GUIConstance.ID).setBounds(30, 70, 50, 50);
 		
-		container.add(radioButtons.get("FirstName"));
-		radioButtons.get("FirstName").setBounds(80, 70, 100, 50);
+		container.add(radioButtons.get(GUIConstance.FIRST_NAME));
+		radioButtons.get(GUIConstance.FIRST_NAME).setBounds(80, 70, 100, 50);
 		
-		container.add(radioButtons.get("LastName"));
-		radioButtons.get("LastName").setBounds(180, 70, 100, 50);
+		container.add(radioButtons.get(GUIConstance.LAST_NAME));
+		radioButtons.get(GUIConstance.LAST_NAME).setBounds(180, 70, 100, 50);
 		
-		container.add(radioButtons.get("All"));
-		radioButtons.get("All").setBounds(280, 70, 70, 50);
+		container.add(radioButtons.get(GUIConstance.ALL));
+		radioButtons.get(GUIConstance.ALL).setBounds(280, 70, 70, 50);
 		
 		container.add(buttons.get("Search"));
 		buttons.get("Search").setBounds(340, 25, 100, 40);
@@ -111,7 +111,7 @@ public class SearchOptionDialogBox extends JDialog{
 	
 	public void setEditableTextField(boolean state)
 	{
-		textFields.get("Search Text Area").setEditable(state);
+		textFields.get(GUIConstance.SearchValueTextField).setEditable(state);
 	}
 	
 	private void setOfTextField(boolean currentStateOfTxtField, boolean newStateOfTxtField, boolean setEditable)
@@ -125,10 +125,10 @@ public class SearchOptionDialogBox extends JDialog{
 	
 	public void addActionToRadioButtons()
 	{
-		radioButtons.get("ID").addActionListener(new RadioButtonActionListener());
-		radioButtons.get("FirstName").addActionListener(new RadioButtonActionListener());
-		radioButtons.get("LastName").addActionListener(new RadioButtonActionListener());
-		radioButtons.get("All").addActionListener(new RadioButtonActionListener());
+		radioButtons.get(GUIConstance.ID).addActionListener(new RadioButtonActionListener());
+		radioButtons.get(GUIConstance.FIRST_NAME).addActionListener(new RadioButtonActionListener());
+		radioButtons.get(GUIConstance.LAST_NAME).addActionListener(new RadioButtonActionListener());
+		radioButtons.get(GUIConstance.ALL).addActionListener(new RadioButtonActionListener());
 	}
 	
 	public void addActionToButtons()
@@ -142,20 +142,20 @@ public class SearchOptionDialogBox extends JDialog{
 		List<Object[] > list = null;
 		switch(option)
 		{
-			case "All":
+			case GUIConstance.ALL:
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
 				return list;
 			
-			case "ID":
+			case GUIConstance.ID:
 				int id = Integer.parseInt(value);
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithID(session, id);
 				return list;
 				
-			case "FirstName":
+			case GUIConstance.FIRST_NAME:
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, value);
 				return list;
 				
-			case "LastName":
+			case GUIConstance.LAST_NAME:
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, value);
 				return list;
 				
@@ -173,22 +173,22 @@ public class SearchOptionDialogBox extends JDialog{
 		{
 			switch (e.getActionCommand())
 			{
-				case "All":
+				case GUIConstance.ALL:
 					searchOption = e.getActionCommand();
 					setOfTextField(stateOfTextField, false, false);
 					break;
 					
-				case "FirstName":
+				case GUIConstance.FIRST_NAME:
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
 					break;
 					
-				case "LastName":
+				case GUIConstance.LAST_NAME:
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
 					break;
 					
-				case "ID":
+				case GUIConstance.ID:
 					//setSearchOption(e.getActionCommand());
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
@@ -211,21 +211,24 @@ public class SearchOptionDialogBox extends JDialog{
 			{
 				session = factory.openSession();
 				transaction = session.beginTransaction();
-				searchValue = textFields.get("Search Text Area").getText();
+				searchValue = textFields.get(GUIConstance.SearchValueTextField).getText();
 				List<Object[]> list = null;
-				if(searchOption.equals("All"))
+				if(searchOption.equals(GUIConstance.ALL))
 				{
 					list = decisionToSearch(session, searchOption, searchValue);
+					minGUI.displayLog("Eecuted all saerch ");
 				}
 				else if(!searchOption.isEmpty() && !searchValue.isEmpty())
 				{
 					list = decisionToSearch(session, searchOption, searchValue);
+					minGUI.displayLog("Eecuted all search " + searchOption + " With value " + searchValue);
 				}
 				
 				if(list != null)
 				{
 					minGUI.setValueFromData(list); //http://www.dreamincode.net/forums/topic/305238-pass-info-from-jdialog-to-jframe/
 					// action here will directly deal with the main GUI
+					minGUI.displayLog("All Values Found, and displayed on table ");
 				}
 				
 				transaction.commit();
