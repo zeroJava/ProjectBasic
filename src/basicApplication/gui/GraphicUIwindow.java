@@ -230,7 +230,8 @@ public class GraphicUIwindow extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			displayLog("Action button clicked");
+			displayLog("BasicApplication using hibernate.\n" + "Database: sakila\n" 
+					+ "Table: actor\n" + "SQL type: mysql\n" + "open-source\n");
 		}
 	}
 	

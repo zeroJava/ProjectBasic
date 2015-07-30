@@ -18,3 +18,10 @@ Searching for GUINESS by LastName on Thu Jul 30 01:14:54 BST 2015
 Retriving data from actor table using LastName on Thu Jul 30 01:14:54 BST 2015
 All Values Found, and displayed on table  on Thu Jul 30 01:14:54 BST 2015
 Clicked on radio button and chose  LastName on Thu Jul 30 01:14:58 BST 2015
+All components are initialised  on Thu Jul 30 01:53:50 BST 2015
+BasicApplication using hibernate.
+Database: sakila
+Table: actor
+SQL type: mysql
+open-source
+ on Thu Jul 30 01:53:52 BST 2015
