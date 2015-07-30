@@ -17,24 +17,15 @@
 
 	
 	<query name="findAllActors">
-        <![CDATA[select ID, firstName, lastName from ActorHibernateBasic]]>
+        <![CDATA[from ActorHibernateBasic]]>
 	</query>
 	<query name="findAllByID">
-        <![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.ID = :ID]]>
-	</query>
-	<query name="findIDByLastName">
-        <![CDATA[select ID from ActorHibernateBasic ac where ac.lastName = :lastName]]>
-	</query>
-	<query name="findFirstNameByLastName">
-		<![CDATA[select firstName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
-	</query>
-	<query name="findLastNameByFirstName">
-		<![CDATA[select lastName from ActorHibernateBasic ac where ac.firstName = :firstName]]>
+        <![CDATA[from ActorHibernateBasic ac where ac.ID = :ID]]>
 	</query>
 	<query name="getAllUsingLastName">
-		<![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.lastName = :lastName]]>
+		<![CDATA[from ActorHibernateBasic ac where ac.lastName = :lastName]]>
 	</query>
 	<query name="getAllUsingFirstName">
-		<![CDATA[select ID, firstName, lastName from ActorHibernateBasic ac where ac.firstName = :firstName]]>
+		<![CDATA[from ActorHibernateBasic ac where ac.firstName = :firstName]]>
 	</query>
 </hibernate-mapping>

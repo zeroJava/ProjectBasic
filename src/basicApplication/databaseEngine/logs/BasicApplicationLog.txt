@@ -42,3 +42,76 @@ Table: actor
 SQL type: mysql
 open-source
  on Thu Jul 30 02:01:13 BST 2015
+All components are initialised  on Thu Jul 30 02:37:01 BST 2015
+All components are initialised  on Thu Jul 30 20:34:53 BST 2015
+All components are initialised  on Thu Jul 30 20:35:28 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 20:35:33 BST 2015
+Retriving data from actor table using All on Thu Jul 30 20:35:33 BST 2015
+Eecuted all saerch  on Thu Jul 30 20:35:33 BST 2015
+All components are initialised  on Thu Jul 30 22:36:32 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 22:36:34 BST 2015
+Retriving data from actor table using All on Thu Jul 30 22:36:35 BST 2015
+All components are initialised  on Thu Jul 30 22:38:05 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 22:38:07 BST 2015
+Retriving data from actor table using All on Thu Jul 30 22:38:08 BST 2015
+Eecuted all saerch  on Thu Jul 30 22:38:08 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:38:08 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 22:38:13 BST 2015
+Searching for 105 by ID on Thu Jul 30 22:38:16 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 22:38:16 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:38:16 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 22:38:18 BST 2015
+Searching for ED by FirstName on Thu Jul 30 22:38:21 BST 2015
+Retriving data from actor table using FirstName on Thu Jul 30 22:38:21 BST 2015
+Clicked on radio button and chose  LastName on Thu Jul 30 22:38:26 BST 2015
+Searching for CHASE by LastName on Thu Jul 30 22:38:34 BST 2015
+Retriving data from actor table using LastName on Thu Jul 30 22:38:34 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:38:34 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 22:38:38 BST 2015
+Searching for ED by FirstName on Thu Jul 30 22:38:41 BST 2015
+Retriving data from actor table using FirstName on Thu Jul 30 22:38:41 BST 2015
+All components are initialised  on Thu Jul 30 22:39:30 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 22:39:32 BST 2015
+Searching for ED by FirstName on Thu Jul 30 22:39:35 BST 2015
+Retriving data from actor table using FirstName on Thu Jul 30 22:39:35 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:39:35 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 22:39:39 BST 2015
+Retriving data from actor table using All on Thu Jul 30 22:39:40 BST 2015
+Eecuted all saerch  on Thu Jul 30 22:39:40 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:39:40 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 22:39:46 BST 2015
+Searching for 105 by ID on Thu Jul 30 22:39:49 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 22:39:49 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:39:49 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 22:39:54 BST 2015
+Searching for 203 by ID on Thu Jul 30 22:39:57 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 22:39:57 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:39:57 BST 2015
+Clicked on radio button and chose  LastName on Thu Jul 30 22:40:01 BST 2015
+Searching for CHASE by LastName on Thu Jul 30 22:40:05 BST 2015
+Retriving data from actor table using LastName on Thu Jul 30 22:40:05 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 22:40:05 BST 2015
+All components are initialised  on Thu Jul 30 23:20:36 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 23:20:43 BST 2015
+Retriving data from actor table using All on Thu Jul 30 23:20:46 BST 2015
+Eecuted all saerch  on Thu Jul 30 23:20:46 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:20:46 BST 2015
+Clicked on radio button and chose  LastName on Thu Jul 30 23:20:48 BST 2015
+Searching for GUINESS by LastName on Thu Jul 30 23:20:54 BST 2015
+Retriving data from actor table using LastName on Thu Jul 30 23:20:54 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:20:54 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 23:20:58 BST 2015
+Searching for ED by FirstName on Thu Jul 30 23:21:02 BST 2015
+Retriving data from actor table using FirstName on Thu Jul 30 23:21:02 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:21:02 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 23:21:04 BST 2015
+Retriving data from actor table using All on Thu Jul 30 23:21:05 BST 2015
+Eecuted all saerch  on Thu Jul 30 23:21:05 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:21:05 BST 2015
+Retriving data from actor table using All on Thu Jul 30 23:21:14 BST 2015
+Eecuted all saerch  on Thu Jul 30 23:21:14 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:21:14 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 23:21:25 BST 2015
+Searching for 3 by ID on Thu Jul 30 23:21:28 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 23:21:28 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 23:21:28 BST 2015

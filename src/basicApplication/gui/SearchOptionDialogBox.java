@@ -144,23 +144,23 @@ public class SearchOptionDialogBox extends JDialog{
 		{
 			case GUIConstance.ALL:
 				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.ALL);
-				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
+				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsObjetArray(session);
 				return list;
 			
 			case GUIConstance.ID:
 				int id = Integer.parseInt(value);
 				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.ID);
-				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithID(session, id);
+				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithIDObjectArray(session, id);
 				return list;
 				
 			case GUIConstance.FIRST_NAME:
 				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.FIRST_NAME);
-				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, value);
+				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstNameObjectArray(session, value);
 				return list;
 				
 			case GUIConstance.LAST_NAME:
 				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.LAST_NAME);
-				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, value);
+				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastNameObjectArray(session, value);
 				return list;
 				
 			default:

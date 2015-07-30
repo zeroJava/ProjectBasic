@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 
+import basicApplication.dataClass.ActorHibernateBasic;
 import basicApplication.databaseEngine.DatabaseSearchEng;
 import basicApplication.utilitiesEngine.HibernateUtilitiess;
 
@@ -34,14 +35,114 @@ public class DatabaseSearchEngineTest {
 	}
 	
 	@Test
-	public void testGettingEveything()
+	public void testRertiveAllHibernateItems()
 	{
 		try
 		{
 			session = factory.openSession();
 			transaction = session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
+			List<ActorHibernateBasic> list = (List<ActorHibernateBasic>) DatabaseSearchEng.retrieveAllActors(session);
+			for (ActorHibernateBasic object : list)
+			{
+				System.out.println(object);
+			}
+			transaction.commit();
+		}
+		catch(HibernateException he)
+		{
+			System.out.println(he.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+	}
+	
+	@Test
+	public void testRertiveHibernateItemsUsingID()
+	{
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<ActorHibernateBasic> list = (List<ActorHibernateBasic>) DatabaseSearchEng.retrieveAllActorsWithID(session, 150);
+			for (ActorHibernateBasic object : list)
+			{
+				System.out.println(object);
+			}
+			transaction.commit();
+		}
+		catch(HibernateException he)
+		{
+			System.out.println(he.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+	}
+	
+	@Test
+	public void testRertiveHibernateItemsUsingFirstname()
+	{
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<ActorHibernateBasic> list = (List<ActorHibernateBasic>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, "ED");
+			for (ActorHibernateBasic object : list)
+			{
+				System.out.println(object);
+			}
+			transaction.commit();
+		}
+		catch(HibernateException he)
+		{
+			System.out.println(he.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+	}
+	
+	@Test
+	public void testRertiveHibernateItemsUsingLastname()
+	{
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<ActorHibernateBasic> list = (List<ActorHibernateBasic>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, "CHASE");
+			for (ActorHibernateBasic object : list)
+			{
+				System.out.println(object);
+			}
+			transaction.commit();
+		}
+		catch(HibernateException he)
+		{
+			System.out.println(he.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
+	}
+	
+	@Test
+	public void testGettingEveythingInObjectArray()
+	{
+		try
+		{
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithIDObjectArray(session, 150);
 			for (Object[] object : list)
 			{
 				System.out.println(object[0] + " " + object[1] + " "+ object[2]);
@@ -80,14 +181,14 @@ public class DatabaseSearchEngineTest {
 	}
 
 	@Test
-	public void testGetAllDataUsingLastame()
+	public void testGetAllDataUsingLastameInObjectArray()
 	{
 		try
 		{
 			session = factory.openSession();
 			transaction = session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, "GUINESS");
+			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastNameObjectArray(session, "GUINESS");
 			for (Object[] object : list)
 			{
 				System.out.println(object[0] + " " + object[1] + " "+ object[2]);
@@ -105,14 +206,14 @@ public class DatabaseSearchEngineTest {
 	}
 	
 	@Test
-	public void testGetAllDataUsingFirstName()
+	public void testGetAllDataUsingFirstNameObjectArray()
 	{
 		try
 		{
 			session = factory.openSession();
 			transaction = session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, "ED");
+			List<Object[]> list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstNameObjectArray(session, "ED");
 			for (Object[] object : list)
 			{
 				System.out.println(object[0] + " " + object[1] + " "+ object[2]);

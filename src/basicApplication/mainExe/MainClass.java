@@ -12,5 +12,8 @@ public class MainClass {
 		SessionFactory factory = HibernateUtilitiess.getSessionFactory();
 		@SuppressWarnings("unused")
 		GraphicUIwindow graphicUIwindow = new GraphicUIwindow(factory);
+		
+		// http://stackoverflow.com/questions/17355980/hibernate-sql-query-result-mapping-convert-to-object-class-bean
+		// googel - Transformers.aliasToBean
 	}
 }
