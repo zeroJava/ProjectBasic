@@ -25,3 +25,20 @@ Table: actor
 SQL type: mysql
 open-source
  on Thu Jul 30 01:53:52 BST 2015
+All components are initialised  on Thu Jul 30 01:58:50 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 01:58:54 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 01:58:56 BST 2015
+Retriving data from actor table using All on Thu Jul 30 01:58:56 BST 2015
+Eecuted all saerch  on Thu Jul 30 01:58:56 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:58:56 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 01:59:04 BST 2015
+Searching for 100 by ID on Thu Jul 30 01:59:08 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 01:59:08 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:59:08 BST 2015
+All components are initialised  on Thu Jul 30 02:01:12 BST 2015
+BasicApplication using hibernate.
+Database: sakila
+Table: actor
+SQL type: mysql
+open-source
+ on Thu Jul 30 02:01:13 BST 2015

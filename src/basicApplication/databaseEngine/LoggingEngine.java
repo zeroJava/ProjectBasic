@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class LoggingEngine {
 	
-	public final String location = "C:/Users/Abu/Documents/Programming/Java/ProjectBasic/src/basicApplication/databaseEngine/logs/BasicApplicationLog.txt";
+	public final String location = "src/basicApplication/databaseEngine/logs/BasicApplicationLog.txt";
 	private File locationOfFile;
 	//private BufferedWriter writer;
 	
