@@ -143,19 +143,23 @@ public class SearchOptionDialogBox extends JDialog{
 		switch(option)
 		{
 			case GUIConstance.ALL:
+				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.ALL);
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActors(session);
 				return list;
 			
 			case GUIConstance.ID:
 				int id = Integer.parseInt(value);
+				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.ID);
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithID(session, id);
 				return list;
 				
 			case GUIConstance.FIRST_NAME:
+				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.FIRST_NAME);
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorWithFirstName(session, value);
 				return list;
 				
 			case GUIConstance.LAST_NAME:
+				minGUI.displayLog("Retriving data from actor table using " + GUIConstance.LAST_NAME);
 				list = (List<Object[]>) DatabaseSearchEng.retrieveAllActorsWithLastName(session, value);
 				return list;
 				
@@ -176,22 +180,26 @@ public class SearchOptionDialogBox extends JDialog{
 				case GUIConstance.ALL:
 					searchOption = e.getActionCommand();
 					setOfTextField(stateOfTextField, false, false);
+					minGUI.displayLog("Clicked on radio button and chose  " + GUIConstance.ALL);
 					break;
 					
 				case GUIConstance.FIRST_NAME:
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
+					minGUI.displayLog("Clicked on radio button and chose  " + GUIConstance.FIRST_NAME);
 					break;
 					
 				case GUIConstance.LAST_NAME:
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
+					minGUI.displayLog("Clicked on radio button and chose  " + GUIConstance.LAST_NAME);
 					break;
 					
 				case GUIConstance.ID:
 					//setSearchOption(e.getActionCommand());
 					searchOption = e.getActionCommand();
 					setOfTextField(!stateOfTextField, true, true);
+					minGUI.displayLog("Clicked on radio button and chose  " + GUIConstance.ID);
 					break;
 					
 				default:
@@ -220,8 +228,8 @@ public class SearchOptionDialogBox extends JDialog{
 				}
 				else if(!searchOption.isEmpty() && !searchValue.isEmpty())
 				{
+					minGUI.displayLog("Searching for " +  searchValue +  " by " + searchOption);
 					list = decisionToSearch(session, searchOption, searchValue);
-					minGUI.displayLog("Eecuted all search " + searchOption + " With value " + searchValue);
 				}
 				
 				if(list != null)

@@ -1,0 +1,20 @@
+
+All components are initialised  on Thu Jul 30 01:14:24 BST 2015
+Action button clicked on Thu Jul 30 01:14:26 BST 2015
+Clicked on radio button and chose  All on Thu Jul 30 01:14:28 BST 2015
+Retriving data from actor table using All on Thu Jul 30 01:14:29 BST 2015
+Eecuted all saerch  on Thu Jul 30 01:14:29 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:14:29 BST 2015
+Clicked on radio button and chose  FirstName on Thu Jul 30 01:14:32 BST 2015
+Searching for ED by FirstName on Thu Jul 30 01:14:35 BST 2015
+Retriving data from actor table using FirstName on Thu Jul 30 01:14:35 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:14:35 BST 2015
+Clicked on radio button and chose  ID on Thu Jul 30 01:14:37 BST 2015
+Searching for 105 by ID on Thu Jul 30 01:14:41 BST 2015
+Retriving data from actor table using ID on Thu Jul 30 01:14:41 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:14:41 BST 2015
+Clicked on radio button and chose  LastName on Thu Jul 30 01:14:48 BST 2015
+Searching for GUINESS by LastName on Thu Jul 30 01:14:54 BST 2015
+Retriving data from actor table using LastName on Thu Jul 30 01:14:54 BST 2015
+All Values Found, and displayed on table  on Thu Jul 30 01:14:54 BST 2015
+Clicked on radio button and chose  LastName on Thu Jul 30 01:14:58 BST 2015

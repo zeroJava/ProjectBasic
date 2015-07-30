@@ -21,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
 
 import org.hibernate.SessionFactory;
 
+import basicApplication.databaseEngine.LoggingEngine;
+
 
 public class GraphicUIwindow extends JFrame{
 
@@ -38,6 +40,7 @@ public class GraphicUIwindow extends JFrame{
 	//private SessionFactory factory;
 	
 	private Container container;
+	private LoggingEngine log;
 	
 	public GraphicUIwindow(SessionFactory factory)
 	{
@@ -46,6 +49,8 @@ public class GraphicUIwindow extends JFrame{
 		initialiseTextAreaAndTable();
 		postitioningTheCoponentsInJFrame();
 		initialiseButtonsWithActions();
+		log = new LoggingEngine();
+		displayLog("All components are initialised ");
 	}
 
 	public void setLayout()
@@ -206,6 +211,7 @@ public class GraphicUIwindow extends JFrame{
 	public void displayLog(String text)
 	{
 		textAreas.get(GUIConstance.LoggingTextBoxWindow).append(text + " on " + Calendar.getInstance().getTime() + "\n");
+		log.writeToFile(text + " on " + Calendar.getInstance().getTime() + "\n");
 	}
 	
 	private class SerachButtonActionListenerClass implements ActionListener
