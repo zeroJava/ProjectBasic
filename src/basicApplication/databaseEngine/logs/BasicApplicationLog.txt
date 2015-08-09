@@ -175,3 +175,36 @@ SQL type: mysql
 open-source
  on Fri Jul 31 16:43:59 BST 2015
 Exiting the application  on Fri Jul 31 16:44:27 BST 2015
+All components are initialised  on Sat Aug 08 07:03:53 BST 2015
+Clicked on radio button and chose  All on Sat Aug 08 07:03:56 BST 2015
+Retriving data from actor table using All on Sat Aug 08 07:03:56 BST 2015
+Eecuted all saerch  on Sat Aug 08 07:03:56 BST 2015
+All Values Found, and displayed on table  on Sat Aug 08 07:03:56 BST 2015
+Clicked on radio button and chose  FirstName on Sat Aug 08 07:04:02 BST 2015
+Searching for ED by FirstName on Sat Aug 08 07:04:07 BST 2015
+Retriving data from actor table using FirstName on Sat Aug 08 07:04:07 BST 2015
+All Values Found, and displayed on table  on Sat Aug 08 07:04:07 BST 2015
+All components are initialised  on Sun Aug 09 01:51:18 BST 2015
+Clicked on radio button and chose  All on Sun Aug 09 01:51:20 BST 2015
+Retriving data from actor table using All on Sun Aug 09 01:51:21 BST 2015
+Eecuted all saerch  on Sun Aug 09 01:51:21 BST 2015
+All Values Found, and displayed on table  on Sun Aug 09 01:51:21 BST 2015
+Clicked on radio button and chose  ID on Sun Aug 09 01:51:23 BST 2015
+Searching for 105 by ID on Sun Aug 09 01:51:28 BST 2015
+Retriving data from actor table using ID on Sun Aug 09 01:51:28 BST 2015
+All Values Found, and displayed on table  on Sun Aug 09 01:51:28 BST 2015
+Clicked on radio button and chose  FirstName on Sun Aug 09 01:51:30 BST 2015
+Searching for ED by FirstName on Sun Aug 09 01:51:33 BST 2015
+Retriving data from actor table using FirstName on Sun Aug 09 01:51:33 BST 2015
+All Values Found, and displayed on table  on Sun Aug 09 01:51:33 BST 2015
+Clicked on radio button and chose  LastName on Sun Aug 09 01:51:35 BST 2015
+Searching for CHASE by LastName on Sun Aug 09 01:51:39 BST 2015
+Retriving data from actor table using LastName on Sun Aug 09 01:51:39 BST 2015
+All Values Found, and displayed on table  on Sun Aug 09 01:51:39 BST 2015
+BasicApplication using hibernate.
+Database: sakila
+Table: actor
+SQL type: mysql
+open-source
+ on Sun Aug 09 01:51:43 BST 2015
+Exiting the application  on Sun Aug 09 01:51:47 BST 2015
