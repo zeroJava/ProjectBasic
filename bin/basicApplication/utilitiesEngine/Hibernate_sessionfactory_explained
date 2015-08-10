@@ -21,4 +21,12 @@
  
  In order for that to happen, we need to create an object of the configuration class, which intern will executed to
  extract data from the hibernate.cfg.xml file.
-   
+ 
+ e.g.
+ 
+ 	Configuration configuration = new Configuration().configure(); // this calls hibernate.cfg.xml
+ 	
+	ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+	// starts making by getting all the data from the configuaration object.
+	
+	sessionFactory = configuration.buildSessionFactory(serviceRegistry); // makes the session factory
