@@ -208,3 +208,20 @@ SQL type: mysql
 open-source
  on Sun Aug 09 01:51:43 BST 2015
 Exiting the application  on Sun Aug 09 01:51:47 BST 2015
+All components are initialised  on Wed Aug 19 00:10:18 BST 2015
+Clicked on radio button and chose  All on Wed Aug 19 00:10:22 BST 2015
+Retriving data from actor table using All on Wed Aug 19 00:10:23 BST 2015
+Eecuted all saerch  on Wed Aug 19 00:10:23 BST 2015
+All Values Found, and displayed on table  on Wed Aug 19 00:10:23 BST 2015
+Clicked on radio button and chose  ID on Wed Aug 19 00:10:27 BST 2015
+Searching for 100 by ID on Wed Aug 19 00:10:30 BST 2015
+Retriving data from actor table using ID on Wed Aug 19 00:10:30 BST 2015
+All Values Found, and displayed on table  on Wed Aug 19 00:10:30 BST 2015
+Clicked on radio button and chose  FirstName on Wed Aug 19 00:10:32 BST 2015
+Searching for ED by FirstName on Wed Aug 19 00:10:37 BST 2015
+Retriving data from actor table using FirstName on Wed Aug 19 00:10:37 BST 2015
+All Values Found, and displayed on table  on Wed Aug 19 00:10:37 BST 2015
+Clicked on radio button and chose  LastName on Wed Aug 19 00:10:40 BST 2015
+Searching for GUINESS by LastName on Wed Aug 19 00:10:46 BST 2015
+Retriving data from actor table using LastName on Wed Aug 19 00:10:46 BST 2015
+All Values Found, and displayed on table  on Wed Aug 19 00:10:46 BST 2015

@@ -15,16 +15,17 @@ public class ActorHibernateBasic {
 	private Date date;
 	
 	/* this is a persistence class, which means that this class a class representation of table in the 
-	   database. */
+	 * database. */
+	
 	/* So when we make data, we could create an instance of this class, and will automatically be stored to 
-	   the table (database).*/
-	/* This why this called a persistence class, because data will still exist, even after that object is
-	   executing. */
+	 * the table (database). */
+	
+	/* This why this called a persistence class, because data will still exist, even after that object is executing. */
 	
 	public ActorHibernateBasic()// constructor require to public for visibility for hibernate proxies
 	{
 		/* we need an empty constructor to make hibernate happy, and style the class is written is in java-bean 
-		   style with constructors, setters and getter, which is the recommended style */
+		 * style with constructors, setters and getter, which is the recommended style */
 	}
 	
 	public ActorHibernateBasic(String firstName, String lastName)

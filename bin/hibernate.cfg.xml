@@ -38,9 +38,10 @@
 		<!-- Names the annotated entity class
 		Here list of reference containing the location of hibernate mapping files -->
 		<mapping resource="basicApplication/dataClass/actorHibernateBasic.hbm.xml"/>
-		<mapping resource="basicApplication/dataClass/cityHibernate.hbm.xml"/>
-		<mapping resource="basicApplication/dataClass/countryHibernate.hbm.xml"/>  
-		<!--  <mapping class="basicApplication.dataClass.ActorHibernateBasic"/>                 --> 
+		
+		<!--  <mapping resource="basicApplication/dataClass/cityHibernate.hbm.xml"/> -->
+		<!--  <mapping resource="basicApplication/dataClass/countryHibernate.hbm.xml"/>  -->
+		<!--  <mapping class="basicApplication.dataClass.ActorHibernateBasic"/>          --> 
 		             
 	</session-factory>
 
