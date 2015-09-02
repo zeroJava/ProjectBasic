@@ -225,3 +225,17 @@ Clicked on radio button and chose  LastName on Wed Aug 19 00:10:40 BST 2015
 Searching for GUINESS by LastName on Wed Aug 19 00:10:46 BST 2015
 Retriving data from actor table using LastName on Wed Aug 19 00:10:46 BST 2015
 All Values Found, and displayed on table  on Wed Aug 19 00:10:46 BST 2015
+All components are initialised  on Thu Aug 27 00:50:31 BST 2015
+Clicked on radio button and chose  All on Thu Aug 27 00:50:36 BST 2015
+Retriving data from actor table using All on Thu Aug 27 00:50:37 BST 2015
+Eecuted all saerch  on Thu Aug 27 00:50:37 BST 2015
+All Values Found, and displayed on table  on Thu Aug 27 00:50:37 BST 2015
+All components are initialised  on Thu Aug 27 02:29:51 BST 2015
+Clicked on radio button and chose  All on Thu Aug 27 02:29:55 BST 2015
+Retriving data from actor table using All on Thu Aug 27 02:29:56 BST 2015
+Eecuted all saerch  on Thu Aug 27 02:29:56 BST 2015
+All Values Found, and displayed on table  on Thu Aug 27 02:29:56 BST 2015
+Clicked on radio button and chose  FirstName on Thu Aug 27 02:30:01 BST 2015
+Searching for ED by FirstName on Thu Aug 27 02:30:04 BST 2015
+Retriving data from actor table using FirstName on Thu Aug 27 02:30:04 BST 2015
+All Values Found, and displayed on table  on Thu Aug 27 02:30:04 BST 2015
