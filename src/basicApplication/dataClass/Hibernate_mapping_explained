@@ -20,6 +20,11 @@
   
   the type is associated with data-type from the SQL language
   
+  -----------------------------------------------| Identifier  |--------------------------------------------------
+  
+  Hibernate must declare an primary key in the table to the one in the database table, this is done via @ID in 
+  annotations and <id name="ID" type= "integer" column="actor_id"> in hbm.xml.
+  
   --------------------------------------| What is hibernate named query |-----------------------------------------
   
   Named queries are HQL code that are written in the mapping document, which can be used in the java by executing 
