@@ -239,3 +239,21 @@ Clicked on radio button and chose  FirstName on Thu Aug 27 02:30:01 BST 2015
 Searching for ED by FirstName on Thu Aug 27 02:30:04 BST 2015
 Retriving data from actor table using FirstName on Thu Aug 27 02:30:04 BST 2015
 All Values Found, and displayed on table  on Thu Aug 27 02:30:04 BST 2015
+All components are initialised  on Sat Oct 24 00:27:27 BST 2015
+Clicked on radio button and chose  All on Sat Oct 24 00:27:30 BST 2015
+Retriving data from actor table using All on Sat Oct 24 00:27:31 BST 2015
+Eecuted all saerch  on Sat Oct 24 00:27:31 BST 2015
+All Values Found, and displayed on table  on Sat Oct 24 00:27:31 BST 2015
+Clicked on radio button and chose  FirstName on Sat Oct 24 00:27:35 BST 2015
+Searching for ED by FirstName on Sat Oct 24 00:27:39 BST 2015
+Retriving data from actor table using FirstName on Sat Oct 24 00:27:39 BST 2015
+All Values Found, and displayed on table  on Sat Oct 24 00:27:39 BST 2015
+Clicked on radio button and chose  LastName on Sat Oct 24 00:27:43 BST 2015
+Searching for CHASE by LastName on Sat Oct 24 00:27:47 BST 2015
+Retriving data from actor table using LastName on Sat Oct 24 00:27:47 BST 2015
+All Values Found, and displayed on table  on Sat Oct 24 00:27:47 BST 2015
+All components are initialised  on Sun Nov 01 17:23:45 GMT 2015
+Clicked on radio button and chose  All on Sun Nov 01 17:23:51 GMT 2015
+Retriving data from actor table using All on Sun Nov 01 17:23:52 GMT 2015
+Eecuted all saerch  on Sun Nov 01 17:23:52 GMT 2015
+All Values Found, and displayed on table  on Sun Nov 01 17:23:52 GMT 2015
