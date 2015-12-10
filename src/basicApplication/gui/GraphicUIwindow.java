@@ -124,13 +124,19 @@ public class GraphicUIwindow extends JFrame{
 		/* generating the text area and table, by assigning them values */ 
 		//textAreas.put("mainTextBoxWindow", new JTextArea(10, 70)); this text area has been replace with a table.
 		
+		/* ------------------- creating the textareas and adding text area to scroll pane ------------------------- */
+		
 		textAreas.put(GUIConstance.LoggingTextBoxWindow, new JTextArea()); // (10, 70) old default value
 		scrollArea.put(GUIConstance.ScrollForTextArea, new JScrollPane(textAreas.get(GUIConstance.LoggingTextBoxWindow)));
 		textAreas.get(GUIConstance.LoggingTextBoxWindow).setSize(new Dimension(700, 170));
 		
+		/* ------------------- setting up scroll pane for text area ------------------------- */
+		
 		scrollArea.get(GUIConstance.ScrollForTextArea).setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollArea.get(GUIConstance.ScrollForTextArea).setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		//scrollArea.get(GUIConstance.ScrollForTextArea).setViewportView(textAreas.get(GUIConstance.LoggingTextBoxWindow));
+		
+		/* ------------------- creating the table ------------------------- */
 		
 		table = new JTable();
 		model = new DefaultTableModel(0, 0);
