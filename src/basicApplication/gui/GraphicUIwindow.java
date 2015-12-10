@@ -134,7 +134,7 @@ public class GraphicUIwindow extends JFrame{
 		
 		scrollArea.get(GUIConstance.ScrollForTextArea).setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollArea.get(GUIConstance.ScrollForTextArea).setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		//scrollArea.get(GUIConstance.ScrollForTextArea).setViewportView(textAreas.get(GUIConstance.LoggingTextBoxWindow));
+		scrollArea.get(GUIConstance.ScrollForTextArea).setViewportView(textAreas.get(GUIConstance.LoggingTextBoxWindow)); // used to update scrollpane
 		
 		/* ------------------- creating the table ------------------------- */
 		
@@ -148,14 +148,7 @@ public class GraphicUIwindow extends JFrame{
 		/* ------------------- adding table to scroll ------------------------- */
 		scrollArea.get(GUIConstance.ScrollForTable).setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollArea.get(GUIConstance.ScrollForTable).setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollArea.get(GUIConstance.ScrollForTable).setViewportView(table);
-		
-		/*----legacy code ----*/
-		//scrollPane = new JScrollPane(table); legacy code
-		//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); legacy code
-		//scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		//scrollPane.setViewportView(table);
-		
+		scrollArea.get(GUIConstance.ScrollForTable).setViewportView(table); // setviewportview id used to update the scroll pane with new information	
 		
 		/* ------------------------- Giving the text area a dark line.-------------------------------------- */
 		scrollArea.get(GUIConstance.ScrollForTable).setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
